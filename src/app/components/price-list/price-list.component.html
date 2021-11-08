@@ -1,0 +1,59 @@
+<h1 class="center">מבחן מניות</h1>
+
+<div dir="ltr">
+
+<button (click)="show()"></button>
+
+<div dir="rtl" class="center">
+ <label>שדה חיפוש לפי תאריך</label>
+<p-calendar (onSelect)="search($event)" >בחר תאריך</p-calendar>
+<button  (click)="reset()">איפוס</button>
+</div>
+
+ <p-table [value]="allDays" [totalRecords]="allDays.length" [paginator]="true" [rows]="10">
+    
+    <ng-template pTemplate="header"  >
+        <tr>
+            <th name="title"  >תאריך
+
+            </th>
+            <th pSortableColumn="open">מחיר פתיחה
+                <p-sortIcon field="open"></p-sortIcon>
+            </th>
+            <th pSortableColumn="low">מחיר הכי נמוך
+                <p-sortIcon field="low"></p-sortIcon>
+
+            </th>
+            <th pSortableColumn="high">מחיר הכי גבוה
+                <p-sortIcon field="high"></p-sortIcon>
+
+            </th>
+            <th pSortableColumn="close">מחיר סגירה
+                <p-sortIcon field="close"></p-sortIcon>
+
+            </th>
+            <th pSortableColumn="difference">הפרש
+                <p-sortIcon field="difference"></p-sortIcon>
+
+            </th>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-day>
+        <tr>
+            <td>{{day.title|date:'shortDate'}}</td>
+            <td>{{day.open}}</td>
+            <td>{{day.low}}</td>
+            <td>{{day.high}}</td>
+            <td>{{day.close}}</td>
+            <td>{{day.difference}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+</div>
+<div dir="rtl">
+    <!-- <div>{{maxSale.close}}</div> -->
+<div ><strong> רווח מקסימלי בקנייה:  {{maxBuy.close}}  בתאריך: {{maxBuy.title|date:'shortDate'}}</strong></div> <br> 
+ <strong>רווח מקסימלי במכירה: {{maxSale.close}}  בתאריך: {{maxSale.title|date:'shortDate'}} </strong> 
+</div>
