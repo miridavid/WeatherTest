@@ -1,0 +1,8 @@
+{
+    "cities":[
+       { "name":"Tel Aviv"},
+       { "name": "Haifa"}, 
+        { "name":  "Jerusalem"}, 
+            { "name":"Eilat"}
+    ]
+}

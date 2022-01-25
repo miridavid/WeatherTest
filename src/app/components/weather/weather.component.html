@@ -1,0 +1,13 @@
+
+
+<div style="width: 30%; ">
+<p-panel  header="Weather">
+    <app-dropdown-cities (changValueEvent)="changeValue($event)"></app-dropdown-cities>
+    <div class="backImg">
+<div *ngIf="cityDetails">
+        <h1 >{{cityDetails.name}}</h1>
+        <h1>{{cityDetails.main.temp}}<span #icon></span></h1>
+</div>
+</div>
+</p-panel>
+</div>
